@@ -1,0 +1,22 @@
+{
+  "name": "gatsby-source-chec-example",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "dev": "gatsby develop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chec/gatsby-source-chec": "1.1.1",
+    "gatsby": "2.24.37",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "dotenv": "8.2.0"
+  }
+}

@@ -1,5 +1,5 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
 
 export default function ProductPage({ data: { product } }) {
   return (
@@ -15,9 +15,7 @@ export const pageQuery = graphql`
     product: checProduct(id: { eq: $id }) {
       id
       name
-      price {
-        formatted_with_symbol
-      }
+      ...PriceInfo
     }
   }
 `;

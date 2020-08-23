@@ -6,7 +6,7 @@ import ProductList from "../components/ProductList";
 export default function ProductsPage({ data: { allChecProduct } }) {
   return (
     <React.Fragment>
-      <h1>Categories</h1>
+      <h1>Products</h1>
 
       <ProductList products={allChecProduct.nodes} />
     </React.Fragment>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
 
-import ProductList from '../components/ProductList';
+import ProductList from "../components/ProductList";
 
 export default function CategoryPage({ data: { category } }) {
   const { products } = category;
@@ -23,9 +23,7 @@ export const pageQuery = graphql`
       products {
         name
         permalink
-        price {
-          formatted_with_symbol
-        }
+        ...PriceInfo
       }
     }
   }

@@ -31,7 +31,6 @@ To begin, inside a new directory, do the following:
 ```bash
 npm init -y
 npm install react react-dom gatsby @chec/gatsby-source-chec
-npm install -D dotenv
 ```
 
 Then add some `scripts` to `package.json`:
@@ -52,7 +51,7 @@ CHEC_PUBLIC_KEY=...
 
 Next create the file `gatsby-config.js`.
 
-We'll first import the `dotenv` package at the top.
+We'll first import the `dotenv` package at the top. `dotenv` is a dependency of Gatsby itself, so there's no need to install it here.
 
 ```js
 require("dotenv").config();
@@ -86,13 +85,17 @@ import React from "react";
 import { graphql } from "gatsby";
 
 export default function IndexPage({
-  data: { checMerchant, allChecProduct, allChecCategory },
+  data: {
+    checMerchant: merchant,
+    allChecCategory: categories,
+    allChecProduct: products,
+  },
 }) {
   return (
     <div>
-      <pre>{{ JSON.stringify(merchant, null, 2) }}</pre>
-      <pre>{{ JSON.stringify(categories, null, 2) }}</pre>
-      <pre>{{ JSON.stringify(products, null, 2) }}</pre>
+      <pre>{ JSON.stringify(merchant, null, 2) }</pre>
+      <pre>{ JSON.stringify(categories, null, 2) }</pre>
+      <pre>{ JSON.stringify(products, null, 2) }</pre>
     </div>
   )
 }

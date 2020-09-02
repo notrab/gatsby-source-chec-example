@@ -4,7 +4,7 @@ This repo contains all of the code necessary to create a static commerce with Ga
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/notrab/gatsby-source-chec-example)
 
-[![Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/notrab/gatsby-source-chec-example)
+[![Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/notrab/gatsby-source-chec-example/tree/main)
 
 ## Run this locally
 

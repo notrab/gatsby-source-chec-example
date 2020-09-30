@@ -573,7 +573,66 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 ```
 
-## 11. Run it locally
+## 11. Using Gatsby Image with product images
+
+The time has come to implement product images using [Gatsby Image](https://www.gatsbyjs.com/plugins/gatsby-image/).
+
+Since the beginning of the tutorial, there has been a new version of [`gatsby-source-chec`](https://www.npmjs.com/package/@chec/gatsby-source-chec/v/1.2.0).
+
+Inside `package.json`, update the version of `gatsby-source-chec` to be at least `1.2.0`, and run `npm install`.
+
+Once installed, go ahead and install the dependencies for using Gatsby Image.
+
+```bash
+npm i -E gatsby-transformer-sharp gatsby-plugin-sharp gatsby-image
+```
+
+Once installed, you will need to update the `pageQuery` in `templates/ProductPage.js`:
+
+```js
+export const pageQuery = graphql`
+  query ProductPageQuery($id: String!) {
+    product: checProduct(id: { eq: $id }) {
+      id
+      name
+      ...PriceInfo
+      images {
+        childImageSharp {
+          fluid(maxWidth: 560) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`;
+```
+
+Here we're calling the `GatsbyImageSharpFluid` fragment for our product images. The `images` array is an array of `File`'s added by the updated source plugin.
+
+Inside `templates/ProductPage.js`, go ahead and import the Gatsby Image component:
+
+```js
+import Img from "gatsby-image";
+```
+
+Then inside the page function, you will want to destructure the first item from the `product.images` array, and call this `mainImage`:
+
+```js
+const [mainImage] = product.images;
+```
+
+Then all that's left to do is render the `<Img />` component on the page with the applicable components if it exists.
+
+```js
+{
+  mainImage && (
+    <Img fluid={mainImage.childImageSharp.fluid} style={{ maxWidth: "50%" }} />
+  );
+}
+```
+
+## 12. Run it locally
 
 That's it!
 
